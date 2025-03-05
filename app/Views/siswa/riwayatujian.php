@@ -383,41 +383,31 @@
             background: rgba(17, 91, 38, 1);
         }
 
+        
 
-
-        .jadwal-ujian {
+        .container-card {
+            width: 80%;
+            max-width: 600px;
+        }
+        .card {
+            background: linear-gradient(to bottom right,rgba(28, 185, 91, 0.82), rgba(39, 185, 92, 0.82), rgba(10, 155, 39, 0.82));
             font-family: 'Poppins';
-            width: 100%;
-            max-width: 800px;
-            border-collapse: collapse;
-            margin: 20px auto;
-            background:rgba(225, 243, 225, 0.76); /* Hijau muda sebagai background */
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #2e7d32;
+        }
+        .card h3 {
+            
+            color:rgb(12, 77, 42);
+        }
+        .card p {
+            margin: 5px 0;
+            color: #333;
         }
 
-        .jadwal-ujian thead {
-            background:rgba(25, 120, 55, 0.89); /* Hijau tua (tapi nggak terlalu tua) */
-            color: white;
-        }
 
-        .jadwal-ujian th, .jadwal-ujian td {
-            padding: 12px 20px;
-            text-align: left;
-        }
-
-        .jadwal-ujian tbody tr {
-            border-bottom: 1px solidrgba(46, 125, 50, 0.61); /* Border hanya di bawah */
-        }
-
-        .jadwal-ujian tbody tr:last-child {
-            border-bottom: none; /* Hapus border bawah di row terakhir */
-        }
-
-        .jadwal-ujian tbody tr:nth-child(even) {
-            background:rgba(23, 165, 61, 0.52); /* Alternatif hijau muda */
-        }
 
 
 
@@ -467,19 +457,19 @@
 
             <div class="menu">
 
-                <a href="/dashboard" >
+                <a href="siswa/dashboard">
                     <i class="fas fa-home"></i>
                     <span class="tooltip-home">Home</span>
                 </a>
-                <a href="/kisi-kisi">
+                <a href="siswa/kisi-kisi" >
                     <i class="fa-solid fa-book-open"></i>
                     <span class="tooltip-kisi2">Kisi-kisi</span>
                 </a>
-                <a href="#" class="active">
+                <a href="siswa/jadwal-ujian" >
                     <i class="fa-solid fa-calendar"></i>
                     <span class="tooltip-jadwal">Jadwal Ujian</span>
                 </a>
-                <a href="/riwayat_ujian">
+                <a href="#" class="active">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                     <span class="tooltip-riwayat">Riwayat Ujian</span>
 
@@ -498,50 +488,39 @@
 
         
         <div class="welcome-message">
-            <h2>Halaman Jadwal Ujian</h2>
-            <p>Ayo pastikan kamu sudah belajar sebelum pelajaranya di ujiankan ya...😁👍 </p>
+            <h2>Halaman Riwayat Ujian</h2>
+            <p>Ini adalah halaman kamu bisa melihat Riwayat ujian yang sudah kamu kerjakan... </p>
         </div> <!-- End welcome-mesasage-->
 
 
 
 
         <div class="daftar-ujian">
-            <h3>Table jadwal Ujian,  &nbsp Kelas XI</h3>
+            <h3>Riwayat Ujian kamu,</h3>
 
             <div class="container-mapel">
 
-                <table class="jadwal-ujian">
+                <div class="container-card">
 
-                    <thead>
-                        <tr>
-                            <th>Hari</th>
-                            <th>Tanggal</th>
-                            <th>Mata Pelajaran</th>
-                            <th>Waktu</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Senin</td>
-                            <td>4 Maret 2025</td>
-                            <td>Matematika</td>
-                            <td>07:30 - 09:00</td>
-                        </tr>
-                        <tr>
-                            <td>Selasa</td>
-                            <td>5 Maret 2025</td>
-                            <td>Bahasa Inggris</td>
-                            <td>08:00 - 09:30</td>
-                        </tr>
-                        <tr>
-                            <td>Rabu</td>
-                            <td>6 Maret 2025</td>
-                            <td>Fisika</td>
-                            <td>09:30 - 11:00</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <div class="card">
+                        <h3>Matematika</h3>
+                        <p><i class="fa-solid fa-calendar-days"></i>&nbsp; Senin, 4 Maret 2024</p>
+                        <p><i class="fa-solid fa-clock"></i>&nbsp; 08:00 - 09:30</p>
+                    </div>
 
+                    <div class="card">
+                        <h3>Bahasa Inggris</h3>
+                        <p><i class="fa-solid fa-calendar-days"></i>&nbsp; Selasa, 27 Februari 2024</p>
+                        <p><i class="fa-solid fa-clock"></i>&nbsp; 10:00 - 11:30</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Fisika</h3>
+                        <p><i class="fa-solid fa-calendar-days"></i>&nbsp; Jumat, 16 Februari 2024</p>
+                        <p><i class="fa-solid fa-clock"></i>&nbsp; 07:30 - 09:00</p>
+                    </div>
+
+                </div>
 
             </div>
 

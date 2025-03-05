@@ -383,32 +383,90 @@
             background: rgba(17, 91, 38, 1);
         }
 
-        
 
-        .container-card {
-            width: 80%;
-            max-width: 600px;
+
+        .modal {
+            display: none; 
+            position: fixed; 
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.66);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; 
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s;
+            z-index: 10;
         }
-        .card {
-            background: linear-gradient(to bottom right,rgba(28, 185, 91, 0.82), rgba(39, 185, 92, 0.82), rgba(10, 155, 39, 0.82));
+
+        .modal-content {
+            background: rgba(65, 213, 134, 0.87);
             font-family: 'Poppins';
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            margin-bottom: 15px;
-            border-left: 5px solid #2e7d32;
-        }
-        .card h3 {
-            
-            color:rgb(12, 77, 42);
-        }
-        .card p {
-            margin: 5px 0;
-            color: #333;
+            text-align: center;
+            width: 600px;
+            height: 400px;
+            transform: scale(0.8);  /* Awalnya diperkecil */
+            transition: transform 0.3s ease-in-out;
         }
 
+        .modal-content #modal-title{
+            color: rgb(19, 113, 63);
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.37);
+        }
+
+        .modal-content p {
+            position: relative;
+            display: flex;
+            text-align: left;
+            color: rgba(1, 1, 1, 0.62);
+            font-weight: 500;
+            left: 0px;
+        }
+
+        .modal-content button{
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            background: linear-gradient(to bottom right, rgba(28, 185, 91, 0.82), rgba(36, 147, 77, 0.82), rgba(37, 172, 64, 0.82));
+            padding: 15px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            color: white;
+            font-size: 1em;
+            font-family: 'Poppins';
+            box-shadow: 2px 2px 0px 0px rgb(9, 116, 59);
+            transition: all 0.3s ease-in-out;
 
 
+        }
+
+        .modal-content button:hover {
+            color:rgb(14, 82, 45);
+        }
+
+        .modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1); /* Kembali ke ukuran normal */
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: rgb(22, 99, 45);
+            font-weight: bold;
+        }
 
 
 
@@ -457,19 +515,19 @@
 
             <div class="menu">
 
-                <a href="/dashboard">
+                <a href="siswa/dashboard">
                     <i class="fas fa-home"></i>
                     <span class="tooltip-home">Home</span>
                 </a>
-                <a href="/kisi-kisi" >
+                <a href="#"  class="active">
                     <i class="fa-solid fa-book-open"></i>
                     <span class="tooltip-kisi2">Kisi-kisi</span>
                 </a>
-                <a href="/jadwal_ujian" >
+                <a href="siswa/jadwal-ujian">
                     <i class="fa-solid fa-calendar"></i>
                     <span class="tooltip-jadwal">Jadwal Ujian</span>
                 </a>
-                <a href="#" class="active">
+                <a href="siswa/riwayat-ujian">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                     <span class="tooltip-riwayat">Riwayat Ujian</span>
 
@@ -488,46 +546,54 @@
 
         
         <div class="welcome-message">
-            <h2>Halaman Riwayat Ujian</h2>
-            <p>Ini adalah halaman kamu bisa melihat Riwayat ujian yang sudah kamu kerjakan... </p>
+            <h2>Halaman Kisi-kisi</h2>
+            <p>Ayo baca dulu kisi2 nya biar ulanganmu nilainya bagus 😁👍 </p>
         </div> <!-- End welcome-mesasage-->
 
 
 
 
         <div class="daftar-ujian">
-            <h3>Riwayat Ujian kamu,</h3>
+            <h3>Daftar kisi-kisi yang tersedia,  &nbsp Kelas XI</h3>
 
             <div class="container-mapel">
 
-                <div class="container-card">
+                <div class="mapel mapel1" onclick="openModal('Pemrograman Web')">Pemograman Web </div>
+                <div class="mapel mapel2" onclick="openModal('Visual Basic')">Visual Basic</div>
+                <div class="mapel mapel3" onclick="openModal('Game Developer')">Game Developer</div>
+                <div class="mapel mapel4" onclick="openModal('Bahasa Indonesia')">Bahasa Indonesia</div>
+                <div class="mapel mapel4" onclick="openModal('Bahasa Inggris')">Bahasa Inggris</div>
+                <div class="mapel mapel4" onclick="openModal('PPKN')">PPKN</div>
+                <div class="mapel mapel4" onclick="openModal('PJOk')">PJOK</div>
+                <div class="mapel mapel4" onclick="openModal('Metematika')">Matematika</div>
+                <div class="mapel mapel4" onclick="openModal('PAI')">PAI</div>
+                <div class="mapel mapel4" onclick="openModal('Sejarah')">Sejarah</div>
+                <div class="mapel mapel4" onclick="openModal('PKK')">PKK</div>
 
-                    <div class="card">
-                        <h3>Matematika</h3>
-                        <p><i class="fa-solid fa-calendar-days"></i>&nbsp; Senin, 4 Maret 2024</p>
-                        <p><i class="fa-solid fa-clock"></i>&nbsp; 08:00 - 09:30</p>
-                    </div>
+            </div>
 
-                    <div class="card">
-                        <h3>Bahasa Inggris</h3>
-                        <p><i class="fa-solid fa-calendar-days"></i>&nbsp; Selasa, 27 Februari 2024</p>
-                        <p><i class="fa-solid fa-clock"></i>&nbsp; 10:00 - 11:30</p>
-                    </div>
+            <div id="modal-konfirmasi" class="modal">
 
-                    <div class="card">
-                        <h3>Fisika</h3>
-                        <p><i class="fa-solid fa-calendar-days"></i>&nbsp; Jumat, 16 Februari 2024</p>
-                        <p><i class="fa-solid fa-clock"></i>&nbsp; 07:30 - 09:00</p>
-                    </div>
+                <div class="modal-content">
 
+                    <span class="close" onclick="closeModal()">&times;</span>
+
+                    <h2 id="modal-title"></h2>
+                    <p><span id="note-kisi-kisi">
+                        Catatan guru saat membuat kisi2,  bisa untuk nulis isi materi atau menjelaskan materi untuk ujian nanti itu apa saja...
+                        </br></br> Contoh: 
+                        <br></br> Materi 1 - tentang bla bla bla
+                        <br> Materi 2 - tentang bla bla bla
+                       
+                    </span></p>
+
+                    <button>Download File Kisi-kisi</button>
+                    
                 </div>
 
             </div>
 
-            
-
         </div> <!-- End daftar-ujian-->
-
 
         <div class="footer">
             <h4>&copy All rights reversed by Ujianku</h4>

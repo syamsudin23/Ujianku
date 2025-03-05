@@ -293,11 +293,11 @@
             
         }   
 
-        .daftar-ujian{
+        .daftar-ujian{      
             z-index: 1;
             height: 375px;
             width: 1300px;
-            background: rgba(65, 213, 134, 0.87);
+            background: rgba(143, 218, 179, 0.72);
             position: relative;
             border-radius: 10px;
             left: 115px;
@@ -309,8 +309,11 @@
             font-family: "Poppins", sans-serif;
             font-size: 1.3em;
             color: rgb(17, 91, 38);
+            border-radius: 10px;
+            background: rgba(40, 160, 98, 0.6);
+
             padding: 30px 50px;
-            display: inline-block;
+            display: flex;
             border-bottom: 3px solid rgba(17, 91, 38, 0.66);
         }
 
@@ -335,6 +338,7 @@
             padding: 15px 30px;
             border-radius: 15px;
             cursor: pointer;
+            position: relative;
             font-family: 'Poppins', sans-serif;
             color: white;
             font-weight: 500;
@@ -359,6 +363,20 @@
             box-shadow: 5px 5px 0px 0px rgb(9, 121, 48);
             background: linear-gradient(to bottom right,rgba(19, 150, 71, 0.82), rgba(35, 140, 74, 0.82), rgba(26, 158, 83, 0.82));
         }
+
+        /* Indikator Status */
+        .status {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            height: 15px;
+            width: 15px;
+            border-radius: 5px;
+        }
+
+        /* Status Warna */
+        .status-merah { background:rgb(204, 69, 69); }  /* Belum dimulai */
+        .status-hijau { background:rgb(16, 104, 45); } /* Ujian bisa di mulai */
 
 
 
@@ -452,7 +470,7 @@
         .fitur-lain{
             height: 130px;
             width: 790px;
-            /* background:  skyblue; */
+            /* background:  skyblue; */ 
             position: relative;
             top: 5px;
             left: 150px;
@@ -467,7 +485,7 @@
         .fitur-lain a{
             color: white;
             font-size: 15px;
-            background: linear-gradient(to bottom right,rgba(41, 199, 104, 0.82), rgba(35, 202, 96, 0.82), rgba(37, 172, 64, 0.82));
+            background: linear-gradient(to bottom right,rgba(41, 199, 146, 0.82), rgba(111, 199, 143, 0.82), rgba(59, 129, 90, 0.82));
 
 
             padding: 30px 50px;
@@ -475,7 +493,7 @@
             border-radius: 10px;
             font-family: 'Poppins';
             transition: all 0.3s ease-in-out;
-            box-shadow: 2px 2px 5px 5px rgba(22, 139, 63, 0.49) inset;
+            /* box-shadow: 2px 2px 5px 5px rgba(22, 139, 63, 0.49) inset; */
             color: rgb(14, 86, 53);
             font-weight: bold;
             white-space: nowrap; /* Mencegah teks turun ke bawah */
@@ -485,9 +503,8 @@
         }
 
         .fitur-lain a:hover{
-            box-shadow: 2px 2px 5px 5px rgba(9, 121, 48, 0.49) inset;
+            /* box-shadow: 2px 2px 5px 5px rgba(9, 121, 48, 0.49) inset; */
             background: linear-gradient(to bottom right,rgba(41, 199, 104, 0.82), rgba(35, 202, 96, 0.82), rgba(37, 172, 64, 0.82));
-            color: rgb(255, 255, 255);
         }
 
 
@@ -575,9 +592,9 @@
             height: 70px;
             width: 1300px;
 
-            top: 20px;
+            top: 0px;
             left: 115px;
-            border-radius: 10px;
+            border-radius: 0px 0px 0px 10px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -616,15 +633,15 @@
                     <i class="fas fa-home"></i>
                     <span class="tooltip-home">Home</span>
                 </a>
-                <a href="/kisi-kisi">
+                <a href="/siswa/kisi-kisi">
                     <i class="fa-solid fa-book-open"></i>
                     <span class="tooltip-kisi2">Kisi-kisi</span>
                 </a>
-                <a href="/jadwal_ujian">
+                <a href="/siswa/jadwal-ujian">
                     <i class="fa-solid fa-calendar"></i>
                     <span class="tooltip-jadwal">Jadwal Ujian</span>
                 </a>
-                <a href="/riwayat_ujian">
+                <a href="/siswa/riwayat-ujian">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                     <span class="tooltip-riwayat">Riwayat Ujian</span>
 
@@ -651,9 +668,9 @@
 
 
         <div class="fitur-lain">
-            <a href="/kisi-kisi" class="kisi-kisi"><i class="fa-solid fa-book-open"></i> Kisi-kisi</a>
-            <a href="/jadwal_ujian" class="jadwal-ujian"><i class="fa-solid fa-calendar"></i> Jadwal Ujian</a>
-            <a href="/riwayat_ujian" class="riwayat-ujian"><i class="fa-solid fa-clock-rotate-left"></i> Riwayat Ujian</a>
+            <a href="siswa/kisi-kisi" class="kisi-kisi"><i class="fa-solid fa-book-open"></i> Kisi-kisi</a>
+            <a href="siswa/jadwal-ujian" class="jadwal-ujian"><i class="fa-solid fa-calendar"></i> Jadwal Ujian</a>
+            <a href="siswa/riwayat-ujian" class="riwayat-ujian"><i class="fa-solid fa-clock-rotate-left"></i> Riwayat Ujian</a>
             <a href="#" class="info-akun-card" id="btn-info-akun"><i class="fa-solid fa-address-card"></i> Info Akun</a>
         </div>
 
@@ -678,12 +695,28 @@
 
             <div class="container-mapel">
 
-                <div class="mapel mapel1" onclick="openModal('Pemrograman Web', 20, '60 Menit')">Pemograman Web </div>
-                <div class="mapel mapel2" onclick="openModal('Visual Basic', 20, '60 Menit')">Visual Basic</div>
-                <div class="mapel mapel3" onclick="openModal('Game Developer', 20, '60 Menit')">Game Developer</div>
-                <div class="mapel mapel4" onclick="openModal('Bahasa Indonesia', 20, '60 Menit')">Bahasa Indonesia</div>
+                <div class="mapel" onclick="openModal('Pemrograman Web', 20, '60 Menit')">
+                    Pemrograman Web 
+                    <div class="status status-hijau"></div> 
+                </div>
+
+                <div class="mapel" onclick="openModal('Visual Basic', 20, '60 Menit')">
+                    Visual Basic
+                    <div class="status status-merah"></div> 
+                </div>
+
+                <div class="mapel" onclick="openModal('Game Developer', 20, '60 Menit')">
+                    Game Developer
+                    <div class="status status-merah"></div> 
+                </div>
+
+                <div class="mapel" onclick="openModal('Bahasa Indonesia', 20, '60 Menit')">
+                    Bahasa Indonesia
+                    <div class="status status-merah"></div> 
+                </div>
 
             </div>
+
 
             <div id="modal-konfirmasi" class="modal">
 

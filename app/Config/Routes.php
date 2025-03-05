@@ -9,11 +9,11 @@ $routes->get('/', 'Home::index');
 
 $routes->get('/login', 'c_Auth::Login');
 
-$routes->get('/dashboard', 'c_Dash::Dash');
+$routes->get('/siswa/dashboard', 'siswa\dashboard::index');
 
-$routes->get('/kisi-kisi', 'c_kisi_kisi::kisi_kisi');
+$routes->get('/siswa/kisi-kisi', 'siswa\KisiKisi::index');
 
-$routes->get('/jadwal_ujian', 'c_jadwal_ujian::jadwal_ujian');
+$routes->get('/siswa/jadwal-ujian', 'siswa\JadwalUjian::index');
 
-$routes->get('/riwayat_ujian', 'c_riwayat_ujian::riwayat_ujian');
+$routes->get('/siswa/riwayat-ujian', 'siswa\RiwayatUjian::index');
 

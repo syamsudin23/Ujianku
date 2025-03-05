@@ -385,88 +385,51 @@
 
 
 
-        .modal {
-            display: none; 
-            position: fixed; 
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.66);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0; 
-            visibility: hidden;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s;
-            z-index: 10;
-        }
-
-        .modal-content {
-            background: rgba(65, 213, 134, 0.87);
-            font-family: 'Poppins';
-            padding: 20px;
+        .jadwal-ujian {
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            max-width: 900px;
+            border-collapse: collapse;
+            margin: 20px auto;
+            background: rgba(225, 243, 225, 0.76); /* Hijau muda */
             border-radius: 10px;
-            text-align: center;
-            width: 600px;
-            height: 400px;
-            transform: scale(0.8);  /* Awalnya diperkecil */
-            transition: transform 0.3s ease-in-out;
+            overflow: hidden;
+            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .modal-content #modal-title{
-            color: rgb(19, 113, 63);
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.37);
-        }
-
-        .modal-content p {
-            position: relative;
-            display: flex;
-            text-align: left;
-            color: rgba(1, 1, 1, 0.62);
-            font-weight: 500;
-            left: 0px;
-        }
-
-        .modal-content button{
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            display: flex;
-            background: linear-gradient(to bottom right, rgba(28, 185, 91, 0.82), rgba(36, 147, 77, 0.82), rgba(37, 172, 64, 0.82));
-            padding: 15px 25px;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
+        .jadwal-ujian thead {
+            background: rgba(25, 120, 55, 0.89); /* Hijau tua */
             color: white;
-            font-size: 1em;
-            font-family: 'Poppins';
-            box-shadow: 2px 2px 0px 0px rgb(9, 116, 59);
-            transition: all 0.3s ease-in-out;
-
-
         }
 
-        .modal-content button:hover {
-            padding: 16px 27px;
+        .jadwal-ujian th, .jadwal-ujian td {
+            padding: 12px 20px;
+            text-align: left;
         }
 
-        .modal.show {
-            opacity: 1;
-            visibility: visible;
+        .jadwal-ujian thead th {
+            text-align: center;
+            padding: 15px;
         }
 
-        .modal.show .modal-content {
-            transform: scale(1); /* Kembali ke ukuran normal */
+        .jadwal-ujian tbody tr:last-child td {
+            border-bottom: none; /* Hapus border bawah di baris terakhir */
         }
 
-        .close {
-            position: absolute;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: rgb(22, 99, 45);
+        .jadwal-ujian tbody tr:nth-child(even) {
+            background: rgba(36, 170, 72, 0.52); /* Alternatif hijau muda */
+        }
+
+        .jadwal-ujian td[rowspan] {
             font-weight: bold;
+            background: rgba(20, 90, 40, 0.85); /* Hijau lebih gelap untuk sel rowspan */
+            color: white;
+            text-align: center;
+            vertical-align: middle;
         }
+
+
+
 
 
 
@@ -515,19 +478,19 @@
 
             <div class="menu">
 
-                <a href="/dashboard">
+                <a href="siswa/dashboard" >
                     <i class="fas fa-home"></i>
                     <span class="tooltip-home">Home</span>
                 </a>
-                <a href="#"  class="active">
+                <a href="siswa/kisi-kisi">
                     <i class="fa-solid fa-book-open"></i>
                     <span class="tooltip-kisi2">Kisi-kisi</span>
                 </a>
-                <a href="/jadwal_ujian">
+                <a href="#" class="active">
                     <i class="fa-solid fa-calendar"></i>
                     <span class="tooltip-jadwal">Jadwal Ujian</span>
                 </a>
-                <a href="/riwayat_ujian">
+                <a href="siswa/riwayat-ujian">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                     <span class="tooltip-riwayat">Riwayat Ujian</span>
 
@@ -546,54 +509,85 @@
 
         
         <div class="welcome-message">
-            <h2>Halaman Kisi-kisi</h2>
-            <p>Ayo baca dulu kisi2 nya biar ulanganmu nilainya bagus 😁👍 </p>
+            <h2>Halaman Jadwal Ujian</h2>
+            <p>Ayo pastikan kamu sudah belajar sebelum pelajaranya di ujiankan ya...😁👍 </p>
         </div> <!-- End welcome-mesasage-->
 
 
 
 
         <div class="daftar-ujian">
-            <h3>Daftar kisi-kisi yang tersedia,  &nbsp Kelas XI</h3>
+            <h3>Table jadwal Ujian,  &nbsp Kelas XI</h3>
 
             <div class="container-mapel">
 
-                <div class="mapel mapel1" onclick="openModal('Pemrograman Web')">Pemograman Web </div>
-                <div class="mapel mapel2" onclick="openModal('Visual Basic')">Visual Basic</div>
-                <div class="mapel mapel3" onclick="openModal('Game Developer')">Game Developer</div>
-                <div class="mapel mapel4" onclick="openModal('Bahasa Indonesia')">Bahasa Indonesia</div>
-                <div class="mapel mapel4" onclick="openModal('Bahasa Inggris')">Bahasa Inggris</div>
-                <div class="mapel mapel4" onclick="openModal('PPKN')">PPKN</div>
-                <div class="mapel mapel4" onclick="openModal('PJOk')">PJOK</div>
-                <div class="mapel mapel4" onclick="openModal('Metematika')">Matematika</div>
-                <div class="mapel mapel4" onclick="openModal('PAI')">PAI</div>
-                <div class="mapel mapel4" onclick="openModal('Sejarah')">Sejarah</div>
-                <div class="mapel mapel4" onclick="openModal('PKK')">PKK</div>
+            <table class="jadwal-ujian">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Hari</th>
+                        <th rowspan="2">Tanggal</th>
+                    </tr>
+                    <tr>
+                        <th>Jam</th>
+                        <th>Mata Pelajaran</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3">Senin</td>
+                        <td rowspan="3">4 Maret 2025</td>
+                        <td>07:30 - 09:00</td>
+                        <td>Matematika</td>
+                    </tr>
+                    <tr>
+                        <td>09:30 - 11:00</td>
+                        <td>Fisika</td>
+                    </tr>
+                    <tr>
+                        <td>12:30 - 14:00</td>
+                        <td>Bahasa Inggris</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3">Selasa</td>
+                        <td rowspan="3">5 Maret 2025</td>
+                        <td>08:00 - 09:30</td>
+                        <td>Bahasa Indonesia</td>
+                    </tr>
+                    <tr>
+                        <td>10:00 - 11:30</td>
+                        <td>Kimia</td>
+                    </tr>
+                    <tr>
+                        <td>13:00 - 14:30</td>
+                        <td>Sejarah</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3">Rabu</td>
+                        <td rowspan="3">6 Maret 2025</td>
+                        <td>09:30 - 11:00</td>
+                        <td>Ekonomi</td>
+                    </tr>
+                    <tr>
+                        <td>12:00 - 13:30</td>
+                        <td>Geografi</td>
+                    </tr>
+                    <tr>
+                        <td>14:00 - 15:30</td>
+                        <td>Sosiologi</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
 
             </div>
 
-            <div id="modal-konfirmasi" class="modal">
-
-                <div class="modal-content">
-
-                    <span class="close" onclick="closeModal()">&times;</span>
-
-                    <h2 id="modal-title"></h2>
-                    <p><span id="note-kisi-kisi">
-                        Catatan guru saat membuat kisi2,  bisa untuk nulis isi materi atau menjelaskan materi untuk ujian nanti itu apa saja...
-                        </br></br> Contoh: 
-                        <br></br> Materi 1 - tentang bla bla bla
-                        <br> Materi 2 - tentang bla bla bla
-                       
-                    </span></p>
-
-                    <button>Download File Kisi-kisi</button>
-                    
-                </div>
-
-            </div>
+            
 
         </div> <!-- End daftar-ujian-->
+
 
         <div class="footer">
             <h4>&copy All rights reversed by Ujianku</h4>
