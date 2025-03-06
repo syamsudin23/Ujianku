@@ -12,7 +12,7 @@
          @import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
          
         body {
-            background-image: url('assets/img/Background-dash2.png');
+            background-image: url("<?= base_url('assets/img/Background-dash2.png') ?>");
             background-size: 100% 100%; /* Paksa gambar mengisi seluruh layar */
             background-position: center;
             background-repeat: no-repeat;
@@ -478,11 +478,11 @@
 
             <div class="menu">
 
-                <a href="siswa/dashboard" >
+                <a href="/siswa/dashboard" >
                     <i class="fas fa-home"></i>
                     <span class="tooltip-home">Home</span>
                 </a>
-                <a href="siswa/kisi-kisi">
+                <a href="/siswa/kisi-kisi">
                     <i class="fa-solid fa-book-open"></i>
                     <span class="tooltip-kisi2">Kisi-kisi</span>
                 </a>
@@ -490,7 +490,7 @@
                     <i class="fa-solid fa-calendar"></i>
                     <span class="tooltip-jadwal">Jadwal Ujian</span>
                 </a>
-                <a href="siswa/riwayat-ujian">
+                <a href="/siswa/riwayat-ujian">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                     <span class="tooltip-riwayat">Riwayat Ujian</span>
 

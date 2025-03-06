@@ -12,10 +12,10 @@
          @import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
          
         body {
-            background-image: url('assets/img/Background-dash2.png');
+            background-image: url("<?= base_url('assets/img/Background-dash2.png') ?>");
             background-size: 100% 100%; /* Paksa gambar mengisi seluruh layar */
             background-position: center;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat;   
             height: 100vh; /* Buat body mengisi tinggi penuh layar */
             margin: 0;
             padding: 0;
@@ -301,7 +301,7 @@
             position: relative;
             border-radius: 10px;
             left: 115px;
-            top: 0px;
+            top: -20px;
 
         }
 
@@ -376,7 +376,7 @@
 
         /* Status Warna */
         .status-merah { background:rgb(204, 69, 69); }  /* Belum dimulai */
-        .status-hijau { background:rgb(16, 104, 45); } /* Ujian bisa di mulai */
+        .status-hijau { background:rgb(13, 131, 52); } /* Ujian bisa di mulai */
 
 
 
@@ -592,7 +592,7 @@
             height: 70px;
             width: 1300px;
 
-            top: 0px;
+            top: -20px;
             left: 115px;
             border-radius: 0px 0px 0px 10px;
             display: flex;
@@ -668,9 +668,9 @@
 
 
         <div class="fitur-lain">
-            <a href="siswa/kisi-kisi" class="kisi-kisi"><i class="fa-solid fa-book-open"></i> Kisi-kisi</a>
-            <a href="siswa/jadwal-ujian" class="jadwal-ujian"><i class="fa-solid fa-calendar"></i> Jadwal Ujian</a>
-            <a href="siswa/riwayat-ujian" class="riwayat-ujian"><i class="fa-solid fa-clock-rotate-left"></i> Riwayat Ujian</a>
+            <a href="/siswa/kisi-kisi" class="kisi-kisi"><i class="fa-solid fa-book-open"></i> Kisi-kisi</a>
+            <a href="/siswa/jadwal-ujian" class="jadwal-ujian"><i class="fa-solid fa-calendar"></i> Jadwal Ujian</a>
+            <a href="/siswa/riwayat-ujian" class="riwayat-ujian"><i class="fa-solid fa-clock-rotate-left"></i> Riwayat Ujian</a>
             <a href="#" class="info-akun-card" id="btn-info-akun"><i class="fa-solid fa-address-card"></i> Info Akun</a>
         </div>
 
