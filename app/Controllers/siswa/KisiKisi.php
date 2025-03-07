@@ -8,6 +8,11 @@ class KisiKisi extends BaseController
 {
     public function index()
     {
-        return view('siswa/kisikisi');
+        $data = [
+            'title' => 'Ujian | Kisi-kisi',
+            'active_page' => 'kisi-kisi' // Tambahkan ini
+        ];
+
+        return view('siswa/kisikisi', $data);
     }
 }

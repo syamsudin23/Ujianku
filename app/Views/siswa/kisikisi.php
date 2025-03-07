@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ujianku | Dashboard</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <title><?= $title; ?></title>
+
+    
+
+</head>
+<body>
+
+    <?= $this->section('styles') ?>
     <style>
          @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
          @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
@@ -22,251 +27,6 @@
             overflow: hidden;
         }
 
-        nav {
-            position: absolute;
-            right: 30px;
-            top: 20px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            display: inline-block;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5em;
-            background: rgba(25, 190, 85, 0.67);
-            border-radius: 20px;
-            display: inline-flex; /* Gunakan inline-flex agar elemen tetap sejajar */
-            align-items: center;
-            gap: 10px;
-            padding: 20px 20px;
-        }
-
-
-        nav a span {
-            white-space: nowrap;
-            font-size: 1rem;
-        }
-
-        .sidebar {
-            width: 95px;
-            height: 100vh;
-            background: linear-gradient(rgba(9, 100, 46, 0.82), rgb(10, 99, 42, 0.82), rgb(18, 118, 38, 0.82));
-            color: white;
-            transition: width 0.3s;
-            position: fixed;
-            font-size: 23px;
-            z-index: 5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 50px;
-            font-family: "Poppins", sans-serif;
-        }
-
-        .sidebar .menu {
-            padding: 10px;
-            padding-top: 175px;
-            
-        }
-        .sidebar .menu a {
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            transition: all 0.1s ease-in-out;
-        }
-        .sidebar .menu a:hover {
-            background: linear-gradient(to bottom right,rgba(28, 185, 91, 0.82), rgba(39, 185, 92, 0.82), rgba(10, 155, 39, 0.82));
-
-            border-radius: 15px;
-        }
-
-        .sidebar .menu a.active{
-            background: linear-gradient(to bottom right,rgba(28, 185, 91, 0.82), rgba(39, 185, 92, 0.82), rgba(10, 155, 39, 0.82));
-            border-radius: 15px;
-
-        }
-
-        .menu a i{
-            position: relative;
-            z-index: 2; /* Supaya ikon di atas tooltip */
-        }
-
-
-        
-
-
-        .menu a span {
-            position: absolute;
-            left: 120%;
-            top: 50%;
-            transform: translateY(-50%);
-            background: linear-gradient(to bottom right,rgba(28, 185, 91, 0.82), rgba(39, 185, 92, 0.82), rgba(10, 155, 39, 0.82));
-
-
-            color: white;
-            padding: 8px 10px;  
-            z-index: 10;
-            border-radius: 5px;
-            font-size: 14px;
-            white-space: nowrap;
-            opacity: 0;
-            box-shadow: 2px 2px 2px 0px rgba(10, 82, 34, 0.62);
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-        }
-
-        
-
-        /* Efek muncul tooltip saat hover */
-        .menu a:hover span {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(-50%) translateX(20px);
-        }
-
-        /* Tambahkan segitiga kecil pada tooltip */
-        .menu a span::before {
-            content: "";
-            position: absolute;
-            left: -10px;
-            top: 50%;
-            transform: translateY(-50%);
-            border-width: 5px;
-            border-style: solid;
-            border-color: transparent rgba(12, 101, 36, 0.82) transparent transparent;
-        }
-
-
-
-
-
-/* ------------------------------------------------------- */
-        .sidebar .logout {
-            /* margin-top: 250px; */
-            position: absolute;
-            bottom: 80px;
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            color: white;
-            text-decoration: none;
-            transition: all 0.1s ease-in-out;
-        }
-
-        a.logout:hover{
-            background: rgba(237, 46, 36, 0.81);
-            border-radius: 15px;
-        }
-
-        .logout .tooltip-logout{
-            position: absolute;
-            left: 120%;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(237, 46, 36, 0.81);
-            color: white;
-            padding: 8px 10px;  
-            z-index: 10;
-            border-radius: 5px;
-            font-size: 14px;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-        }
-
-        a.logout:hover span{
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(-50%) translateX(20px);
-        }
-
-        a.logout span::before{
-            content: "";
-            position: absolute;
-            left: -9px;
-            top: 50%;
-            transform: translateY(-50%);
-            border-width: 5px;
-            border-style: solid;
-            border-color: transparent rgba(237, 46, 36, 0.81) transparent transparent;
-        }
-
-        .logo {
-            cursor: pointer;
-            padding: 2px;
-            text-align: center;
-            background: rgba(245, 255, 249, 0.87);
-            border-radius: 20px;
-            display: flex;
-            top: 25px;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            padding: 5px;
-            z-index: 10;
-            
-            /* Tambahkan transform awal dan transition */
-            transition: transform 1s ease-in-out;
-        }
-
-        .logo.animate {
-            animation: logo-rotate2 2s ease-in-out forwards alternate;
-        }
-
-        @keyframes logo-rotate {
-            from {border-radius: 20px; transform: rotate(0deg);}
-            to   {border-radius: 50%; transform: rotate(360deg);}
-        }
-
-        @keyframes logo-rotate2 {
-            0% {
-                border-radius: 20px;
-                transform: rotate(0deg) scale(1);
-            }
-            50% {
-                border-radius: 50%;
-                transform: rotate(360deg);
-            }
-            75% {
-                transform: translate(60px, 0px);
-            }
-            100% {
-                transform: translate(80px, 0px) rotate(0deg) scale(2.5);
-            }
-            80% { /* Mulai kembali ke posisi awal */
-                transform: translate(60px, 0px);
-            }
-            90% {
-                transform: rotate(-10deg) translate(30px, 0px);
-            }
-            100% {
-                transform: rotate(0deg) translate(0, 0) scale(1);
-            }
-        }
-
-
-
-        .logo img{
-            padding: 5px 2px;
-            z-index: 5;
-        }
-
-        /* End Sidebar CSS */
 
 
         .welcome-message {
@@ -361,6 +121,22 @@
         .mapel:hover{
             box-shadow: 5px 5px 0px 0px rgb(9, 121, 48);
             background: linear-gradient(to bottom right,rgba(19, 150, 71, 0.82), rgba(35, 140, 74, 0.82), rgba(26, 158, 83, 0.82));
+        }
+
+        #searchInput {
+            padding: 15px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            position: absolute; 
+            right: 100px;
+            top: 40px;
+        }
+
+        #searchInput:focus{
+            border: 2px solid #4CAF50; /* Ganti warna border saat fokus */
+            outline: none; /* Hilangkan outline default */
+            background-color: #f0fff0; /* Warna background saat fokus */ 
         }
 
         
@@ -494,52 +270,13 @@
         
 
     </style>
-</head>
-<body>
+    <?= $this->Endsection() ?>
 
-    <nav>
-        <ul>
-            <li>
-                <a href="#">
-                    <span class="profil-usre">$Username</span><i class="fa-solid fa-user"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
+   
+    
+    <?= $this->extend('layout/template') ?>
 
-    <div class="sidebar">
-
-            <div class="logo">
-                <img src="<?= base_url('assets/img/logo-ujianku.png')  ?>" alt="" height="40" width="50">
-            </div>
-
-            <div class="menu">
-
-                <a href="/siswa/dashboard">
-                    <i class="fas fa-home"></i>
-                    <span class="tooltip-home">Home</span>
-                </a>
-                <a href="#"  class="active">
-                    <i class="fa-solid fa-book-open"></i>
-                    <span class="tooltip-kisi2">Kisi-kisi</span>
-                </a>
-                <a href="/siswa/jadwal-ujian">   
-                    <i class="fa-solid fa-calendar"></i>
-                    <span class="tooltip-jadwal">Jadwal Ujian</span>
-                </a>
-                <a href="/siswa/riwayat-ujian">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                    <span class="tooltip-riwayat">Riwayat Ujian</span>
-
-                </a>
-            </div>
-
-            <a href="#" class="logout">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span class="tooltip-logout">Logout</span>
-            </a>
-    </div>  <!-- End Sidebar -->
-
+    <?= $this->section('content') ?> 
 
     <div class="container">
 
@@ -555,6 +292,8 @@
 
         <div class="daftar-ujian">
             <h3>Daftar kisi-kisi yang tersedia,  &nbsp Kelas XI</h3>
+            <input type="text" id="searchInput" placeholder="Cari mapel..." onkeyup="filterMapel()">
+            
 
             <div class="container-mapel">
 
@@ -594,11 +333,6 @@
             </div>
 
         </div> <!-- End daftar-ujian-->
-
-        <div class="footer">
-            <h4>&copy All rights reversed by Ujianku</h4>
-        </div>
-
 
 
 
@@ -668,7 +402,27 @@
 
 
 
+        // seleksi input search mapel kisi-kisi
+
+        
+        function filterMapel() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let mapels = document.querySelectorAll(".container-mapel .mapel");
+
+            mapels.forEach(function(mapel) {
+                let text = mapel.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    mapel.style.display = "block"; // Munculkan jika cocok
+                } else {
+                    mapel.style.display = "none";  // Sembunyikan jika tidak cocok
+                }
+            });
+        }
+
 
     </script>
+
+<?= $this->endSection() ?>
+
 </body>
 </html>

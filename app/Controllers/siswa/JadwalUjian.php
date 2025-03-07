@@ -8,6 +8,11 @@ class JadwalUjian extends BaseController
 {
     public function index()
     {
-        return view('siswa/jadwalujian');
+        $data = [
+            'title' => 'Ujian | Jadwal Ujian',
+            'active_page' => 'jadwal-ujian' // Tambahkan ini
+        ];
+
+        return view('siswa/jadwalujian', $data);
     }
 }

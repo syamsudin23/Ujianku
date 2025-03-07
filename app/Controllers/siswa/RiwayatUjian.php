@@ -8,6 +8,12 @@ class RiwayatUjian extends BaseController
 {
     public function index()
     {
-        return view('siswa/riwayatujian');
+
+        $data = [
+            'title' => 'Ujian | Riwayat-Ujian',
+            'active_page' => 'riwayat-ujian' // Tambahkan ini
+        ];
+
+        return view('siswa/riwayatujian', $data);
     }
 }

@@ -280,7 +280,7 @@
         const imgElement = document.getElementById("floatingImage");
 
         setInterval(() => {
-            // Fade out dulu
+            // Fade out dulu    
             imgElement.style.opacity = "0.1"; // Biar ga langsung hilang total
 
             setTimeout(() => {

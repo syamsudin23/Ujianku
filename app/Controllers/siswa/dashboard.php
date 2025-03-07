@@ -8,6 +8,11 @@ class dashboard extends BaseController
 {
     public function index()
     {
-        return view('siswa/dashboard');
+        $data = [
+            'title' => 'Ujian | Dashboard',
+            'active_page' => 'dashboard' // Tambahkan ini
+        ];
+
+        return view('siswa/dashboard', $data);
     }
 }
